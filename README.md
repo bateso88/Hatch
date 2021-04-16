@@ -96,7 +96,7 @@ Down the line, as reviews and recommendations are added to the directory, the di
 - Heroku (for development)
 
 
-
+<!-- 
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -120,4 +120,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... -->
