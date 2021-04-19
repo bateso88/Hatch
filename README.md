@@ -96,6 +96,8 @@ Down the line, as reviews and recommendations are added to the directory, the di
 - Heroku (for development)
 
 
+`rake db:create`
+
 <!-- 
 # README
 
