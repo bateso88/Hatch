@@ -96,12 +96,20 @@ Down the line, as reviews and recommendations are added to the directory, the di
 - Heroku (for development)
 
 
-`rake db:create`
+<!-- `rake db:create`
 `rails g controller home index` Creates a homepage (/home/index)
 `rails routes`
 `rails g scaffold listings company_name:string short_description:string etc..`
 `rails db:migrate`
-`rails g migration add_user_id_to_listings user_id:integer:index`
+`rails g migration add_user_id_to_listings user_id:integer:index` 
+
+
+
+
+
+-->
+
+
 
 <!-- 
 # README
