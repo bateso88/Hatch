@@ -101,6 +101,7 @@ Down the line, as reviews and recommendations are added to the directory, the di
 `rails routes`
 `rails g scaffold listings company_name:string short_description:string etc..`
 `rails db:migrate`
+`rails g migration add_user_id_to_listings user_id:integer:index`
 
 <!-- 
 # README

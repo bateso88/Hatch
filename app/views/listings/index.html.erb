@@ -10,6 +10,7 @@
       <th>Top three target locations</th>
       <th>Size guide</th>
       <th>Budget</th>
+      <th>User ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,9 +25,15 @@
         <td><%= listing.top_three_target_locations %></td>
         <td><%= listing.size_guide %></td>
         <td><%= listing.budget %></td>
+        <td><%= listing.user_id %></td>
         <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if listing.user == current_user %>
+          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%else%>
+          <td></td>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

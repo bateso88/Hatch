@@ -1,8 +1,11 @@
-<br/>
-<h1>New Listing</h1>
-<br/>
-<%= render 'form', listing: @listing %>
 
+<div class="card">
+  <div class="card-header">
+    <h1>New Listing</h1>
+  </div>
+  <div class="card-body">
+    <%= render 'form', listing: @listing %>
+  </div>
+</div>
 <br/>
-
 <%= link_to 'Back', listings_path, class:"btn btn-dark" %>

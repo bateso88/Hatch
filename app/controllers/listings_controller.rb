@@ -1,5 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /listings or /listings.json
   def index
@@ -12,7 +14,8 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    @listing = Listing.new
+    # @listing = Listing.new
+    @listing = current_user.listings.build
   end
 
   # GET /listings/1/edit
@@ -21,8 +24,8 @@ class ListingsController < ApplicationController
 
   # POST /listings or /listings.json
   def create
-    @listing = Listing.new(listing_params)
-
+    # @listing = Listing.new(listing_params)
+    @listing = current_user.listings.build(listing_params)
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: "Listing was successfully created." }
@@ -56,6 +59,11 @@ class ListingsController < ApplicationController
     end
   end
 
+  def correct_user
+    @listing = current_user.listings.find_by(id: params[:id])
+    redirect_to listings_path, notice: "Not Authorised!" if @listing.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
@@ -64,6 +72,6 @@ class ListingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:company_name, :short_description, :long_description, :requirement, :top_three_target_locations, :size_guide, :budget)
+      params.require(:listing).permit(:company_name, :short_description, :long_description, :requirement, :top_three_target_locations, :size_guide, :budget, :user_id)
     end
 end

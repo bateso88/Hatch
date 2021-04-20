@@ -45,6 +45,11 @@
     <!-- <%= form.label :budget %> -->
     <%= form.text_field :budget, class:"form-control", placeholder:"Budget"  %>
   </div>
+
+  <div class="field form-group">
+    <!-- <%= form.label :budget %> -->
+    <%= form.number_field :user_id, id: :listing_user_id, class:"form-control", value:current_user.id, type: :hidden  %>
+  </div>
   <br/>
 
   <div class="actions">
