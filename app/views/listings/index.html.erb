@@ -1,43 +1,37 @@
 <h1>Listings</h1>
 
-<table class="table table-striped table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th>Company name</th>
-      <th>Short description</th>
-      <th>Long description</th>
-      <th>Requirement</th>
-      <th>Top three target locations</th>
-      <th>Size guide</th>
-      <th>Budget</th>
-      <th>User ID</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.company_name %></td>
-        <td><%= listing.short_description %></td>
-        <td><%= listing.long_description %></td>
-        <td><%= listing.requirement %></td>
-        <td><%= listing.top_three_target_locations %></td>
-        <td><%= listing.size_guide %></td>
-        <td><%= listing.budget %></td>
-        <td><%= listing.user_id %></td>
-        <td><%= link_to 'Show', listing %></td>
+<% @listings.each do |listing| %>
+  <!-- <%= link_to listing do %> -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="listing-text"><%= listing.company_name %></h3>
+      </div>
+      <div class="card-body">
+        <p><%= listing.short_description %></p>
+        <p><%= listing.long_description %></p>
+        <h6>Requirement</h6>
+        <p><%= listing.requirement %></p>
+        <h6>Top 3 Target Locations</h6>
+        <p><%= listing.top_three_target_locations %></p>
+        <h6>Size Guide</h6>
+        <p><%= listing.size_guide %></p>
+        <h6>Budget</h6>
+        <p><%= listing.budget %></p>
+        <p><%= User.find_by(id: listing.user_id).email %></p>
+        <p><%= link_to 'Show', listing %></p>
         <% if listing.user == current_user %>
-          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <p><%= link_to 'Edit', edit_listing_path(listing) %></p>
+          <p><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
         <%else%>
-          <td></td>
-          <td></td>
+          <p></p>
+          <p></p>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+    <br/>
+  <!-- <% end %> -->
+<% end %>
+
 
 <br>
 

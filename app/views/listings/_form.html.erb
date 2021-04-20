@@ -13,41 +13,48 @@
 
   <div class="field form-group">
     <!-- <%= form.label :company_name %> -->
-    <%= form.text_field :company_name, class:"form-control", placeholder:"Company Name"  %>
+    <%= form.text_field :company_name, id: :listing_company_name, class:"form-control", value:current_user.company_name  %>
   </div>
+  <br/>
 
   <div class="field form-group">
     <!-- <%= form.label :short_description %> -->
     <%= form.text_field :short_description, class:"form-control", placeholder:"Short Description"  %>
   </div>
+  <br/>
 
   <div class="field form-group">
     <!-- <%= form.label :long_description %> -->
     <%= form.text_field :long_description, class:"form-control", placeholder:"Long Description"  %>
   </div>
+  <br/>
 
   <div class="field form-group">
     <!-- <%= form.label :requirement %> -->
     <%= form.text_field :requirement, class:"form-control", placeholder:"Requirement" %>
   </div>
+  <br/>
 
   <div class="field form-group">
     <!-- <%= form.label :top_three_target_locations %> -->
     <%= form.text_field :top_three_target_locations, class:"form-control", placeholder:"Top three target locations"  %>
   </div>
+  <br/>
 
   <div class="field form-group">
     <!-- <%= form.label :size_guide %> -->
     <%= form.text_field :size_guide, class:"form-control", placeholder:"Size Guide"  %>
   </div>
+  <br/>
 
   <div class="field form-group">
     <!-- <%= form.label :budget %> -->
     <%= form.text_field :budget, class:"form-control", placeholder:"Budget"  %>
   </div>
+  <br/>
 
   <div class="field form-group">
-    <!-- <%= form.label :budget %> -->
+    <!-- <%= form.label :user_id %> -->
     <%= form.number_field :user_id, id: :listing_user_id, class:"form-control", value:current_user.id, type: :hidden  %>
   </div>
   <br/>
