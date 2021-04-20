@@ -97,6 +97,10 @@ Down the line, as reviews and recommendations are added to the directory, the di
 
 
 `rake db:create`
+`rails g controller home index` Creates a homepage (/home/index)
+`rails routes`
+`rails g scaffold listings company_name:string short_description:string etc..`
+`rails db:migrate`
 
 <!-- 
 # README

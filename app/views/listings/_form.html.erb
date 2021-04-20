@@ -1,0 +1,53 @@
+<%= form_with(model: listing) do |form| %>
+  <% if listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+        <% listing.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <!-- <%= form.label :company_name %> -->
+    <%= form.text_field :company_name, class:"form-control", placeholder:"Company Name"  %>
+  </div>
+
+  <div class="field form-group">
+    <!-- <%= form.label :short_description %> -->
+    <%= form.text_field :short_description, class:"form-control", placeholder:"Short Description"  %>
+  </div>
+
+  <div class="field form-group">
+    <!-- <%= form.label :long_description %> -->
+    <%= form.text_field :long_description, class:"form-control", placeholder:"Long Description"  %>
+  </div>
+
+  <div class="field form-group">
+    <!-- <%= form.label :requirement %> -->
+    <%= form.text_field :requirement, class:"form-control", placeholder:"Requirement" %>
+  </div>
+
+  <div class="field form-group">
+    <!-- <%= form.label :top_three_target_locations %> -->
+    <%= form.text_field :top_three_target_locations, class:"form-control", placeholder:"Top three target locations"  %>
+  </div>
+
+  <div class="field form-group">
+    <!-- <%= form.label :size_guide %> -->
+    <%= form.text_field :size_guide, class:"form-control", placeholder:"Size Guide"  %>
+  </div>
+
+  <div class="field form-group">
+    <!-- <%= form.label :budget %> -->
+    <%= form.text_field :budget, class:"form-control", placeholder:"Budget"  %>
+  </div>
+  <br/>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary"%>
+  </div>
+<% end %>

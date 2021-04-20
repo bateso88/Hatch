@@ -1,0 +1,38 @@
+
+<p>
+  <strong>Company name:</strong>
+  <%= @listing.company_name %>
+</p>
+
+<p>
+  <strong>Short description:</strong>
+  <%= @listing.short_description %>
+</p>
+
+<p>
+  <strong>Long description:</strong>
+  <%= @listing.long_description %>
+</p>
+
+<p>
+  <strong>Requirement:</strong>
+  <%= @listing.requirement %>
+</p>
+
+<p>
+  <strong>Top three target locations:</strong>
+  <%= @listing.top_three_target_locations %>
+</p>
+
+<p>
+  <strong>Size guide:</strong>
+  <%= @listing.size_guide %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @listing.budget %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing), class:"btn btn-secondary" %> 
+<%= link_to 'Back', listings_path, class:"btn btn-secondary" %>

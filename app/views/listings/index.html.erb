@@ -1,0 +1,37 @@
+<h1>Listings</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Company name</th>
+      <th>Short description</th>
+      <th>Long description</th>
+      <th>Requirement</th>
+      <th>Top three target locations</th>
+      <th>Size guide</th>
+      <th>Budget</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.company_name %></td>
+        <td><%= listing.short_description %></td>
+        <td><%= listing.long_description %></td>
+        <td><%= listing.requirement %></td>
+        <td><%= listing.top_three_target_locations %></td>
+        <td><%= listing.size_guide %></td>
+        <td><%= listing.budget %></td>
+        <td><%= link_to 'Show', listing %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listing', new_listing_path, class:"btn btn-secondary" %>
