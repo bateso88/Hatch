@@ -3,10 +3,26 @@ class HubController < ApplicationController
   def index
   end
 
-  def site_appraisal_tool
+  def get_started
   end
 
   def my_listings
     @listings = Listing.all
   end
+
+  def growth_intelligence
+  end
+
+  def marketing_suite
+  end
+
+  def site_appraisal_tool
+  end
+
+  def leasing_guide
+  end
+  
+  def community
+  end
+
 end
