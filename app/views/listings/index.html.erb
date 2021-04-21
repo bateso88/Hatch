@@ -4,7 +4,9 @@
   <!-- <%= link_to listing do %> -->
     <div class="card">
       <div class="card-header">
-        <h3 class="listing-text"><%= listing.company_name %></h3>
+        <%= link_to listing do%>
+          <h3 class="listing-text"><%= listing.company_name %></h3>
+        <%end%>
       </div>
       <div class="card-body">
         <p><%= listing.short_description %></p>
@@ -18,14 +20,10 @@
         <h6>Budget</h6>
         <p><%= listing.budget %></p>
         <p><%= User.find_by(id: listing.user_id).email %></p>
-        <p><%= link_to 'Show', listing %></p>
-        <% if listing.user == current_user %>
+        <!-- <% if listing.user == current_user %>
           <p><%= link_to 'Edit', edit_listing_path(listing) %></p>
-          <p><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        <%else%>
-          <p></p>
-          <p></p>
-        <% end %>
+          <p><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% end %> -->
       </div>
     </div>
     <br/>
