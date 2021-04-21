@@ -1,4 +1,5 @@
-<h1>Listings</h1>
+<h1>Project your requirements to the marketplace.</h1>
+  So landlords and agents can come to you with suitable opportunities. Hear about them before the rest of the market.
 
 <% @listings.each do |listing| %>
   <!-- <%= link_to listing do %> -->
@@ -19,7 +20,6 @@
         <p><%= listing.size_guide %></p>
         <h6>Budget</h6>
         <p><%= listing.budget %></p>
-        <p><%= User.find_by(id: listing.user_id).email %></p>
         <!-- <% if listing.user == current_user %>
           <p><%= link_to 'Edit', edit_listing_path(listing) %></p>
           <p><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
