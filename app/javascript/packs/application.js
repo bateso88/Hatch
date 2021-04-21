@@ -8,6 +8,11 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+$(document).ready(function() {
+  $(".dropdown-toggle").dropdown();
+});
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+

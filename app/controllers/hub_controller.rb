@@ -5,4 +5,8 @@ class HubController < ApplicationController
 
   def site_appraisal_tool
   end
+
+  def my_listings
+    @listings = Listing.all
+  end
 end

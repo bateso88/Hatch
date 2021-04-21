@@ -1,8 +1,7 @@
-<h1>Project your requirements to the marketplace.</h1>
-  So landlords and agents can come to you with suitable opportunities. Hear about them before the rest of the market.
+<%= render 'hub/header'%>
 
 <% @listings.each do |listing| %>
-  <!-- <%= link_to listing do %> -->
+  <% if listing.user == current_user%>
     <div class="card">
       <div class="card-header">
         <%= link_to listing do%>
@@ -20,16 +19,10 @@
         <p><%= listing.size_guide %></p>
         <h6>Budget</h6>
         <p><%= listing.budget %></p>
-        <!-- <% if listing.user == current_user %>
-          <p><%= link_to 'Edit', edit_listing_path(listing) %></p>
-          <p><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        <% end %> -->
       </div>
     </div>
     <br/>
-  <!-- <% end %> -->
+  <% end %>
 <% end %>
-
-
 <br>
-
+<%= link_to 'New Listing', new_listing_path, class:"btn btn-secondary" %>
