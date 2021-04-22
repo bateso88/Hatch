@@ -6,9 +6,6 @@ install:
 - bundle install
 services:
 - postgresql
-script:
-- bundle exec bin/rails db:create
-- bundle exec bin/rails db:migrate
 deploy:
   provider: heroku
   api_key:
