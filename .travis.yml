@@ -1,3 +1,6 @@
+language: ruby
+rvm:
+ - 3.0.0
 install:
 - bundle update --bundler
 - bundle install
