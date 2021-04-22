@@ -1,5 +1,6 @@
 <%= render 'hub/header'%>
 
+<h1>My Listings</h1>
 <% @listings.each do |listing| %>
   <% if listing.user == current_user%>
     <div class="card">

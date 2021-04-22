@@ -1,0 +1,15 @@
+install:
+- bundle update --bundler
+- bundle install
+services:
+- postgresql
+script:
+- bundle exec bin/rails db:create
+- bundle exec bin/rails db:migrate
+deploy:
+  provider: heroku
+  api_key:
+    secure: R+SabuuYxUYGtLMBUIIoSkVVLMhX/nKVDr5G85llzyWYWUlN/F7VASoaA0MXCBQhWclW7elQYBvHXQFMUxDLLjCawHQiaulk8nQ+VuKjiGU7TEh9Og2fsnIkr7oM38KxmUl99JRlzL44cHaPUDHQxSYH7BCzU5kDKct+zjCD1fz+rSzOJBjqpzMgs3wNZGplZGFyXYTnc1HNenKq+kNwv/fnWaBtf/BxIZx6ArIO97H2nlFyZc1dlqFIbnixTxpZWXe7PPg7YTyEbOARAXUAxgYrEqRp9MyBEXWb0+vmrL2n5qqqSJ61VQDrtPnuPzo3nxVCRm1xqos7XpmmRkGBMRAIbAUjB+RCv8hQrin0kZo+WaL27KlO+EujdLqQjUDUy2Zt2lhSjhAIai2kpv5T72H0Ca2bAqrFbr2PIjLnH0EtQtvC5+LaQJ6Xc1UaWmxxSnkpjfhbmeav9d41xubeRmzHeDsBIwWgJwnXmp9XxBYq5ryCmXuiN6ntBARmJxjUz69t4cIfLcvlUc5UvgNADL0fcqyMsxqepyQ1+hyNlbmPtRY1FqxGsjjIBxYrHs89NAxReDAgVFIqpd7c06aByrJJZFQ2k2uYWNPNjhsjdHFQNW5Cs3XbDUws6pkNmUnZBPg4Rc9vIToOwAeY5jt9uGfF3sxu3FnLpSGI4nLFXN8=
+  app: stormy-brushlands-49881
+  edge: true
+  run: rake db:migrate
