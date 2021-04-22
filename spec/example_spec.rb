@@ -1,5 +1,7 @@
-describe "e.g." do 
-  it 'returns true' do 
-    expect(2+2).to eq 4
+# frozen_string_literal: true
+
+describe 'e.g.' do
+  it 'returns true' do
+    expect(2 + 2).to eq 4
   end
 end

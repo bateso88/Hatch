@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_listing, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :correct_user, only: %i[edit update destroy]
 
   # GET /listings or /listings.json
   def index
@@ -9,8 +11,7 @@ class ListingsController < ApplicationController
   end
 
   # GET /listings/1 or /listings/1.json
-  def show
-  end
+  def show; end
 
   # GET /listings/new
   def new
@@ -19,8 +20,7 @@ class ListingsController < ApplicationController
   end
 
   # GET /listings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /listings or /listings.json
   def create
@@ -28,7 +28,7 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to @listing, notice: "Listing was successfully created." }
+        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: "Listing was successfully updated." }
+        format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,24 +54,26 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to listings_url, notice: "Listing was successfully destroyed." }
+      format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   def correct_user
     @listing = current_user.listings.find_by(id: params[:id])
-    redirect_to listings_path, notice: "Not Authorised!" if @listing.nil?
+    redirect_to listings_path, notice: 'Not Authorised!' if @listing.nil?
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_listing
-      @listing = Listing.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def listing_params
-      params.require(:listing).permit(:company_name, :short_description, :long_description, :requirement, :top_three_target_locations, :size_guide, :budget, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def listing_params
+    params.require(:listing).permit(:company_name, :short_description, :long_description, :requirement,
+                                    :top_three_target_locations, :size_guide, :budget, :user_id)
+  end
 end

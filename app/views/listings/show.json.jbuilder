@@ -1,1 +1,3 @@
-json.partial! "listings/listing", listing: @listing
+# frozen_string_literal: true
+
+json.partial! 'listings/listing', listing: @listing
