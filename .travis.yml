@@ -18,3 +18,5 @@ deploy:
   app: stormy-brushlands-49881
   edge: true
   run: rake db:migrate
+  on:
+    branch: main
