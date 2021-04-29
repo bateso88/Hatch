@@ -14,8 +14,6 @@ class HubController < ApplicationController
 
   def marketing_suite; end
 
-  def site_appraisal_tool; end
-
   def leasing_guide; end
 
   def community; end

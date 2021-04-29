@@ -1,0 +1,145 @@
+<%= form_with(model: site_appraisal) do |form| %>
+  <% if site_appraisal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(site_appraisal.errors.count, "error") %> prohibited this site_appraisal from being saved:</h2>
+
+      <ul>
+        <% site_appraisal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="address-field">
+    <h4>Address</h4>
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address %>
+    </div>
+  </div>
+  <div id="variable-terms">
+    <h4>Variable Terms</h4>
+    <div class="field">
+      <%= form.label :lease_length %>
+      <%= form.number_field :lease_length %>
+    </div>
+
+    <div class="field">
+      <%= form.label :fixed_or_rising %>
+      <%= form.text_field :fixed_or_rising %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rent %>
+      <%= form.text_field :rent %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rent_free %>
+      <%= form.number_field :rent_free %>
+    </div>
+  </div>
+
+  <div id="fixed-occupation-costs">
+    <h4>Fixed Occupation Costs</h4>
+    <div id="rates">
+      <h6>Rates</h6>
+      <div class="field">
+        <%= form.label :rateable_value %>
+        <%= form.number_field :rateable_value %>
+      </div>
+
+      <div class="field">
+        <%= form.label :service_charge %>
+        <%= form.number_field :service_charge %>
+      </div>
+
+      <div class="field">
+        <%= form.label :insurance %>
+        <%= form.number_field :insurance %>
+      </div>
+
+      <div class="field">
+        <%= form.label :utilities %>
+        <%= form.number_field :utilities %>
+      </div>
+    </div>
+
+    <div id="staff">
+      <h6>Staff</h6>
+      <div class="field">
+        <%= form.label :members_of_staff %>
+        <%= form.number_field :members_of_staff %>
+      </div>
+
+      <div class="field">
+        <%= form.label :estimated_total_wages %>
+        <%= form.number_field :estimated_total_wages %>
+      </div>
+    </div>
+  </div>
+
+  <div id="cost-of-sales">
+    <h4>Cost of Sales</h4>
+    <div class="field">
+      <%= form.label :cost_of_sales_as_percentage_of_turnover %>
+      <%= form.number_field :cost_of_sales_as_percentage_of_turnover %>
+    </div>
+  </div>
+
+  <div id="projections">
+    <h4>Projections</h4>
+    <div class="field">
+      <%= form.label :projections %>
+      <%= form.text_field :projections %>
+    </div>
+  </div>
+
+  <div id="capital-expenditure">
+    <h4>Capital Expenditure</h4>
+    <div id="site-acquisition-costs">
+      <h6>Site Acquisition Costs</h6>
+      <div class="field">
+        <%= form.label :fit_out %>
+        <%= form.number_field :fit_out %>
+      </div>
+
+      <div class="field">
+        <%= form.label :designs %>
+        <%= form.number_field :designs %>
+      </div>
+
+      <div class="field">
+        <%= form.label :planning_application %>
+        <%= form.number_field :planning_application %>
+      </div>
+
+      <div class="field">
+        <%= form.label :legal_fees %>
+        <%= form.number_field :legal_fees %>
+      </div>
+
+      <div class="field">
+        <%= form.label :building_survey %>
+        <%= form.number_field :building_survey %>
+      </div>
+
+      <div class="field">
+        <%= form.label :surveyor %>
+        <%= form.number_field :surveyor %>
+      </div>
+
+      <div class="field">
+        <%= form.label :stamp_duty %>
+        <%= form.number_field :stamp_duty %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :user_id, id: :site_appraisal_user_id, value:current_user.id, type: :hidden %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

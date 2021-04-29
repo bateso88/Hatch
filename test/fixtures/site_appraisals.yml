@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  lease_length: 1
+  fixed_or_rising: MyString
+  rent: MyString
+  rent_free: 1
+  rateable_value: 1
+  service_charge: 1
+  insurance: 1
+  utilities: 1
+  members_of_staff: 1
+  estimated_total_wages: 1
+  cost_of_sales_as_percentage_of_turnover: 1
+  projections: MyString
+  fit_out: 1
+  designs: 1
+  planning_application: 1
+  legal_fees: 1
+  building_survey: 1
+  surveyor: 1
+  stamp_duty: 1
+
+two:
+  address: MyString
+  lease_length: 1
+  fixed_or_rising: MyString
+  rent: MyString
+  rent_free: 1
+  rateable_value: 1
+  service_charge: 1
+  insurance: 1
+  utilities: 1
+  members_of_staff: 1
+  estimated_total_wages: 1
+  cost_of_sales_as_percentage_of_turnover: 1
+  projections: MyString
+  fit_out: 1
+  designs: 1
+  planning_application: 1
+  legal_fees: 1
+  building_survey: 1
+  surveyor: 1
+  stamp_duty: 1

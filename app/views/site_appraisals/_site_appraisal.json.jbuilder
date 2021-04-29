@@ -1,0 +1,2 @@
+json.extract! site_appraisal, :id, :address, :lease_length, :fixed_or_rising, :rent, :rent_free, :rateable_value, :service_charge, :insurance, :utilities, :members_of_staff, :estimated_total_wages, :cost_of_sales_as_percentage_of_turnover, :projections, :fit_out, :designs, :planning_application, :legal_fees, :building_survey, :surveyor, :stamp_duty, :created_at, :updated_at
+json.url site_appraisal_url(site_appraisal, format: :json)
