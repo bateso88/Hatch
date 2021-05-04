@@ -32,34 +32,32 @@
 
   <tbody>
     <% @site_appraisals.each do |site_appraisal| %>
-      <%if current_user == site_appraisal.user %>
-        <tr>
-          <td><%= site_appraisal.address %></td>
-          <td><%= site_appraisal.lease_length %></td>
-          <td><%= site_appraisal.fixed_or_rising %></td>
-          <td><%= site_appraisal.rent %></td>
-          <td><%= site_appraisal.rent_free %></td>
-          <td><%= site_appraisal.rateable_value %></td>
-          <td><%= site_appraisal.service_charge %></td>
-          <td><%= site_appraisal.insurance %></td>
-          <td><%= site_appraisal.utilities %></td>
-          <td><%= site_appraisal.members_of_staff %></td>
-          <td><%= site_appraisal.estimated_total_wages %></td>
-          <td><%= site_appraisal.cost_of_sales_as_percentage_of_turnover %></td>
-          <td><%= site_appraisal.projections %></td>
-          <td><%= site_appraisal.fit_out %></td>
-          <td><%= site_appraisal.designs %></td>
-          <td><%= site_appraisal.planning_application %></td>
-          <td><%= site_appraisal.legal_fees %></td>
-          <td><%= site_appraisal.building_survey %></td>
-          <td><%= site_appraisal.surveyor %></td>
-          <td><%= site_appraisal.stamp_duty %></td>
-          <td><%= site_appraisal.user_id %></td>
-          <td><%= link_to 'Show', site_appraisal %></td>
-          <td><%= link_to 'Edit', edit_site_appraisal_path(site_appraisal) %></td>
-          <td><%= link_to 'Destroy', site_appraisal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
+      <tr>
+        <td><%= site_appraisal.address %></td>
+        <td><%= site_appraisal.lease_length %></td>
+        <td><%= site_appraisal.fixed_or_rising %></td>
+        <td><%= site_appraisal.rent %></td>
+        <td><%= site_appraisal.rent_free %></td>
+        <td><%= site_appraisal.rateable_value %></td>
+        <td><%= site_appraisal.service_charge %></td>
+        <td><%= site_appraisal.insurance %></td>
+        <td><%= site_appraisal.utilities %></td>
+        <td><%= site_appraisal.members_of_staff %></td>
+        <td><%= site_appraisal.estimated_total_wages %></td>
+        <td><%= site_appraisal.cost_of_sales_as_percentage_of_turnover %></td>
+        <td><%= site_appraisal.projections %></td>
+        <td><%= site_appraisal.fit_out %></td>
+        <td><%= site_appraisal.designs %></td>
+        <td><%= site_appraisal.planning_application %></td>
+        <td><%= site_appraisal.legal_fees %></td>
+        <td><%= site_appraisal.building_survey %></td>
+        <td><%= site_appraisal.surveyor %></td>
+        <td><%= site_appraisal.stamp_duty %></td>
+        <td><%= site_appraisal.user_id %></td>
+        <td><%= link_to 'Show', site_appraisal %></td>
+        <td><%= link_to 'Edit', edit_site_appraisal_path(site_appraisal) %></td>
+        <td><%= link_to 'Destroy', site_appraisal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>

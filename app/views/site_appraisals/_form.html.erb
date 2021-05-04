@@ -10,136 +10,151 @@
       </ul>
     </div>
   <% end %>
-  <div id="address-field">
-    <h4>Address</h4>
-    <div class="field">
-      <%= form.label :address %>
-      <%= form.text_field :address %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div id="address-field">
+          <h4>Location</h4>
+          <div class="form-floating mb-1">
+            <%= form.text_area :address, class:"form-control", placeholder:"Address" %>
+            <%= form.label :address %>
+          </div>
+        </div>
+        <div id="variable-terms">
+          <h4>Variable Terms</h4>
+          <div class="form-floating mb-1">
+            <%= form.number_field :lease_length, class:"form-control", placeholder:3 %>
+            <%= form.label :lease_length %>
+          </div>
+      
+          <div class="form-floating mb-1">
+            <!-- <%= form.text_field :fixed_or_rising, class:"form-select", placeholder:"Fixed" %> -->
+            <%= form.select :fixed_or_rising, ['Fixed', 'Rising'], {}, class: "form-control" %>
+            <%= form.label :fixed_or_rising %>
+          </div>
+      
+          <div class="form-floating mb-1">
+            <%= form.text_field :rent, class:"form-control", placeholder:10000 %>
+            <%= form.label :rent %>
+          </div>
+      
+          <div class="form-floating mb-1">
+            <%= form.number_field :rent_free, class:"form-control", placeholder:3 %>
+            <%= form.label :rent_free %>
+          </div>
+        </div>
+      
+        <div id="fixed-occupation-costs">
+          <h4>Fixed Occupation Costs</h4>
+          <div id="rates">
+            <h6>Rates</h6>
+            <div class="form-floating mb-1">
+              <%= form.number_field :rateable_value, class:"form-control", placeholder:0 %>
+              <%= form.label :rateable_value %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :service_charge, class:"form-control", placeholder:0 %>
+              <%= form.label :service_charge %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :insurance, class:"form-control", placeholder:0 %>
+              <%= form.label :insurance %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :utilities, class:"form-control", placeholder:0 %>
+              <%= form.label :utilities %>
+            </div>
+          </div>
+      
+          <div id="staff">
+            <h6>Staff</h6>
+            <div class="form-floating mb-1">
+              <%= form.number_field :members_of_staff, class:"form-control", placeholder:0 %>
+              <%= form.label :members_of_staff %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :estimated_total_wages, class:"form-control", placeholder:0 %>
+              <%= form.label :estimated_total_wages %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-sm">
+        <div id="cost-of-sales">
+          <h4>Cost of Sales</h4>
+          <div class="form-floating mb-1">
+            <%= form.number_field :cost_of_sales_as_percentage_of_turnover, class:"form-control", placeholder:0 %>
+            <%= form.label :cost_of_sales_as_percentage_of_turnover %>
+          </div>
+        </div>
+      
+        <div id="projections">
+          <h4>Projections</h4>
+          <div class="form-floating mb-1">
+            <%= form.text_field :projections, class:"form-control", placeholder:"Projections" %>
+            <%= form.label :projections %>
+          </div>
+        </div>
+      
+        <div id="capital-expenditure">
+          <h4>Capital Expenditure</h4>
+          <div id="site-acquisition-costs">
+            <h6>Site Acquisition Costs</h6>
+            <div class="form-floating mb-1">
+              <%= form.number_field :fit_out, class:"form-control", placeholder:0 %>
+              <%= form.label :fit_out %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :designs, class:"form-control", placeholder:0 %>
+              <%= form.label :designs %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :planning_application, class:"form-control", placeholder:0 %>
+              <%= form.label :planning_application %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :legal_fees, class:"form-control", placeholder:0 %>
+              <%= form.label :legal_fees %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :building_survey, class:"form-control", placeholder:0 %>
+              <%= form.label :building_survey %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :surveyor, class:"form-control", placeholder:0 %>
+              <%= form.label :surveyor %>
+            </div>
+      
+            <div class="form-floating mb-1">
+              <%= form.number_field :stamp_duty, class:"form-control", placeholder:0 %>
+              <%= form.label :stamp_duty %>
+            </div>
+          </div>
+        </div>
+      
+        <div class="field">
+          <%= form.number_field :user_id, id: :site_appraisal_user_id, value:current_user.id, type: :hidden %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      </div>
     </div>
   </div>
-  <div id="variable-terms">
-    <h4>Variable Terms</h4>
-    <div class="field">
-      <%= form.label :lease_length %>
-      <%= form.number_field :lease_length %>
-    </div>
+  
 
-    <div class="field">
-      <%= form.label :fixed_or_rising %>
-      <%= form.text_field :fixed_or_rising %>
-    </div>
-
-    <div class="field">
-      <%= form.label :rent %>
-      <%= form.text_field :rent %>
-    </div>
-
-    <div class="field">
-      <%= form.label :rent_free %>
-      <%= form.number_field :rent_free %>
-    </div>
-  </div>
-
-  <div id="fixed-occupation-costs">
-    <h4>Fixed Occupation Costs</h4>
-    <div id="rates">
-      <h6>Rates</h6>
-      <div class="field">
-        <%= form.label :rateable_value %>
-        <%= form.number_field :rateable_value %>
-      </div>
-
-      <div class="field">
-        <%= form.label :service_charge %>
-        <%= form.number_field :service_charge %>
-      </div>
-
-      <div class="field">
-        <%= form.label :insurance %>
-        <%= form.number_field :insurance %>
-      </div>
-
-      <div class="field">
-        <%= form.label :utilities %>
-        <%= form.number_field :utilities %>
-      </div>
-    </div>
-
-    <div id="staff">
-      <h6>Staff</h6>
-      <div class="field">
-        <%= form.label :members_of_staff %>
-        <%= form.number_field :members_of_staff %>
-      </div>
-
-      <div class="field">
-        <%= form.label :estimated_total_wages %>
-        <%= form.number_field :estimated_total_wages %>
-      </div>
-    </div>
-  </div>
-
-  <div id="cost-of-sales">
-    <h4>Cost of Sales</h4>
-    <div class="field">
-      <%= form.label :cost_of_sales_as_percentage_of_turnover %>
-      <%= form.number_field :cost_of_sales_as_percentage_of_turnover %>
-    </div>
-  </div>
-
-  <div id="projections">
-    <h4>Projections</h4>
-    <div class="field">
-      <%= form.label :projections %>
-      <%= form.text_field :projections %>
-    </div>
-  </div>
-
-  <div id="capital-expenditure">
-    <h4>Capital Expenditure</h4>
-    <div id="site-acquisition-costs">
-      <h6>Site Acquisition Costs</h6>
-      <div class="field">
-        <%= form.label :fit_out %>
-        <%= form.number_field :fit_out %>
-      </div>
-
-      <div class="field">
-        <%= form.label :designs %>
-        <%= form.number_field :designs %>
-      </div>
-
-      <div class="field">
-        <%= form.label :planning_application %>
-        <%= form.number_field :planning_application %>
-      </div>
-
-      <div class="field">
-        <%= form.label :legal_fees %>
-        <%= form.number_field :legal_fees %>
-      </div>
-
-      <div class="field">
-        <%= form.label :building_survey %>
-        <%= form.number_field :building_survey %>
-      </div>
-
-      <div class="field">
-        <%= form.label :surveyor %>
-        <%= form.number_field :surveyor %>
-      </div>
-
-      <div class="field">
-        <%= form.label :stamp_duty %>
-        <%= form.number_field :stamp_duty %>
-      </div>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.number_field :user_id, id: :site_appraisal_user_id, value:current_user.id, type: :hidden %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

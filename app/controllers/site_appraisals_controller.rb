@@ -1,6 +1,6 @@
 class SiteAppraisalsController < ApplicationController
   before_action :set_site_appraisal, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!
   before_action :correct_user, only: %i[edit update destroy]
 
   # GET /site_appraisals or /site_appraisals.json
