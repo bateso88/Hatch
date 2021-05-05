@@ -1,8 +1,9 @@
 $(function () {
-  /* event listeners */
+  // Event listeners 
   $("#lease-length").change(addRentInputs);
   $("#fixed-or-rising").change(alertWithChoice);
 
+  // Callbacks
   function alertWithChoice() {
      alert('You chose ' + this.value + '!');
   }
