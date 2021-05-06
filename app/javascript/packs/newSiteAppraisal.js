@@ -1,6 +1,6 @@
 $(function () {
-  hideRentFields();
-  showAnnualRentField();
+  $(".rent-year-form").hide()
+  $("#annual-rent").show();
 
   // Event Listeners 
   $("#lease-length").on("change", updateRentInputs);
@@ -9,11 +9,11 @@ $(function () {
 
   // Callbacks
   function updateRentInputs() {
-    hideRentFields()
+    $(".rent-year-form").hide()
     if($("#fixed-or-rising").val() === "Rising") {
       showRentYearFields();
     } else {
-      showAnnualRentField();
+      $("#annual-rent").show();
     }
   }
 
@@ -21,14 +21,6 @@ $(function () {
     for(let i = 1; i<=$("#lease-length").val(); i++){
       $(`#rent-year-${i}`).show();
     }
-  }
-
-  function showAnnualRentField() {
-    $("#annual-rent").show();
-  }
-
-  function hideRentFields() {
-    $(".rent-year-form").hide()
   }
 
   function updateTotalRent() {
