@@ -133,9 +133,35 @@
         <div id="projections">
           <h4>Projections</h4>
           <div class="form-floating mb-1">
-            <%= form.text_field :projections, class:"form-control", placeholder:"Projections" %>
+            <%= form.text_field :projections, class:"form-control", placeholder:"Projections", id:"overall-projections", type: :hidden %>
             <%= form.label :projections %>
           </div>
+
+          <div class='form-floating mb-1 projection-form' id="projection-year-1">
+            <input type="number" class="form-control" placeholder=0></input>
+            <label>Year 1 Projection</label>
+          </div>
+
+          <div class='form-floating mb-1 projection-form' id="projection-year-2">
+            <input type="number" class="form-control" placeholder=0></input>
+            <label>Year 2 Projection</label>
+          </div>
+
+          <div class='form-floating mb-1 projection-form' id="projection-year-3">
+            <input type="number" class="form-control" placeholder=0></input>
+            <label>Year 3 Projection</label>
+          </div>
+
+          <div class='form-floating mb-1 projection-form' id="projection-year-4">
+            <input type="number" class="form-control" placeholder=0></input>
+            <label>Year 4 Projection</label>
+          </div>
+
+          <div class='form-floating mb-1 projection-form' id="projection-year-5">
+            <input type="number" class="form-control" placeholder=0></input>
+            <label>Year 5 Projection</label>
+          </div>
+
         </div>
       
         <div id="capital-expenditure">
