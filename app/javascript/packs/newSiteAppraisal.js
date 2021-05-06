@@ -1,32 +1,47 @@
 $(function () {
+  hideRentFields();
+  showAnnualRentField();
+
   // Event Listeners 
-  $("#lease-length").on("change", addRentInputs);
-  $("#fixed-or-rising").on("change", addRentInputs);
+  $("#lease-length").on("change", updateRentInputs);
+  $("#fixed-or-rising").on("change", updateRentInputs);
+  $("#variable-terms").on('change', updateTotalRent);
 
-  // Callback
-  function addRentInputs() {
-    resetRentInputs();
+  // Callbacks
+  function updateRentInputs() {
+    hideRentFields()
     if($("#fixed-or-rising").val() === "Rising") {
-      addRentYearFields();
+      showRentYearFields();
     } else {
-      addAnnualRentField();
+      showAnnualRentField();
     }
   }
 
-  function resetRentInputs() {
-    $("#rent-inputs").remove();
-    $("#variable-terms").append("<div id='rent-inputs'></div>");
-  }
-
-  function addRentYearFields() {
+  function showRentYearFields() {
     for(let i = 1; i<=$("#lease-length").val(); i++){
-      $("#rent-inputs").append("<div class='form-floating mb-1 rent-year-form'></div>");
-      $(".rent-year-form").last().append(`<input type="number" class="form-control rent-input" placeholder=0 id="rent-year-${i}"></input><label>Rent Year ${i}</label>`);
+      $(`#rent-year-${i}`).show();
     }
   }
 
-  function addAnnualRentField() {
-    $("#rent-inputs").append("<div class='form-floating mb-1 rent-year-form'></div>");
-    $(".rent-year-form").last().append(`<input type="number" class="form-control rent-input" placeholder=0 id="annual-rent"></input><label>Annual Rent</label>`);
+  function showAnnualRentField() {
+    $("#annual-rent").show();
+  }
+
+  function hideRentFields() {
+    $(".rent-year-form").hide()
+  }
+
+  function updateTotalRent() {
+    let rentArray = [];
+    if($("#fixed-or-rising").val() === "Rising") {
+      for(let i = 1; i<=$("#lease-length").val(); i++){
+        rentArray.push($(`#rent-year-${i} input`).val())
+      }
+    } else {
+      for(let i = 1; i<=$("#lease-length").val(); i++){
+        rentArray.push($(`#annual-rent input`).val())    
+      }
+    }
+    $("#overall-rent").val(rentArray)
   }
 });

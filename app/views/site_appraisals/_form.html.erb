@@ -42,14 +42,39 @@
           </div>
                 
           <div class="form-floating mb-1">
-            <%= form.text_field :rent, class:"form-control", placeholder:10000 %>
+            <%= form.text_field :rent, class:"form-control", placeholder:10000, id:"overall-rent" %>
             <%= form.label :rent %>
           </div>
 
           <div id="rent-inputs">
-            <div class='form-floating mb-1 rent-year-form'>
-              <input type="number" class="form-control rent-input" placeholder=0 id="annual-rent"></input>
+            <div class='form-floating mb-1 rent-year-form' id="annual-rent">
+              <input type="number" class="form-control" placeholder=0></input>
               <label>Annual Rent</label>
+            </div>
+
+            <div class='form-floating mb-1 rent-year-form' id="rent-year-1">
+              <input type="number" class="form-control" placeholder=0></input>
+              <label>Rent Year 1</label>
+            </div>
+
+            <div class='form-floating mb-1 rent-year-form' id="rent-year-2">
+              <input type="number" class="form-control" placeholder=0></input>
+              <label>Rent Year 2</label>
+            </div>
+
+            <div class='form-floating mb-1 rent-year-form' id="rent-year-3">
+              <input type="number" class="form-control" placeholder=0></input>
+              <label>Rent Year 3</label>
+            </div>
+
+            <div class='form-floating mb-1 rent-year-form' id="rent-year-4">
+              <input type="number" class="form-control" placeholder=0></input>
+              <label>Rent Year 4</label>
+            </div>
+
+            <div class='form-floating mb-1 rent-year-form' id="rent-year-5">
+              <input type="number" class="form-control" placeholder=0></input>
+              <label>Rent Year 5</label>
             </div>
           </div>
         </div>
