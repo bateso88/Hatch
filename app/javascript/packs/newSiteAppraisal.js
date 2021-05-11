@@ -4,22 +4,21 @@ $(function () {
   $(".projection-form").hide()
   $("#annual-rent").show();
   $("#projection-year-1").show();
-  // $(".container").append('table')
+
+  $(".table-column").hide()
+  $(".column-1").show()
 
   // Event Listeners 
-  $("#lease-length").on("change", updateRentInputsAndProjections);
+  $("#lease-length").on("change", updateRentInputsProjectionsAndTable);
   $("#fixed-or-rising").on("change", updateRentInputs);
   $("#variable-terms").on('change', updateTotalRent);
   $("#projections").on('change', updateTotalProjections);
 
   // Callbacks
-
-  function updateRentInputsAndProjections() {
+  function updateRentInputsProjectionsAndTable() {
     updateRentInputs();
-    $(".projection-form").hide()
-    for(let i = 1; i<=$("#lease-length").val(); i++){
-      $(`#projection-year-${i}`).show("slow");
-    }
+    updateProjections();
+    updateTable();
   };
 
 
@@ -52,11 +51,25 @@ $(function () {
     $("#overall-rent").val(rent)
   }
 
+  function updateProjections(){
+    $(".projection-form").hide()
+    for(let i = 1; i<=$("#lease-length").val(); i++){
+      $(`#projection-year-${i}`).show("slow");
+    }
+  }
+
   function updateTotalProjections() {
     let projections = []
     for(let i = 1; i<=$("#lease-length").val(); i++){
       projections.push($(`#projection-year-${i} input`).val())
     }
     $("#overall-projections").val(projections)
+  }
+
+  function updateTable() {
+    $(".table-column").hide()
+    for(let i = 1; i<=$("#lease-length").val(); i++){
+      $(`.column-${i}`).show();
+    }
   }
 });
