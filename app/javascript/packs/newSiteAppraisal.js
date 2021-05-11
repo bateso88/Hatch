@@ -1,8 +1,10 @@
 $(function () {
+  // Default 
   $(".rent-year-form").hide()
   $(".projection-form").hide()
   $("#annual-rent").show();
   $("#projection-year-1").show();
+  // $(".container").append('table')
 
   // Event Listeners 
   $("#lease-length").on("change", updateRentInputsAndProjections);
