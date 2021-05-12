@@ -13,8 +13,13 @@ $(function () {
   $("#fixed-or-rising").on("change", updateRentInputs);
   $("#variable-terms").on('change', updateTotalRent);
   $("#projections").on('change', updateTotalProjections);
+  // $("#site-appraisal-inputs").on('change', alertNotice);
 
   // Callbacks
+  function alertNotice() {
+    alert("change")
+  }
+
   function updateRentInputsProjectionsAndTable() {
     updateRentInputs();
     updateProjections();
